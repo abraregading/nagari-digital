@@ -9,9 +9,7 @@
     @include('site.layouts.partials.navbar')
 
     <!-- Hero Section -->
-    <header class="hero" id="home">
-        @include('site.layouts.partials.hero')
-    </header>
+
 
     @yield('content')
 

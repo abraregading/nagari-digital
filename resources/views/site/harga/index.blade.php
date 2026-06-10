@@ -1,6 +1,46 @@
 @extends('site.layouts.app_1')
 
+@push('styles')
+<link rel="stylesheet" href="{{ asset('site/css/fitur.css') }}">
+<link rel="stylesheet" href="{{ asset('site/css/harga.css') }}">
+@endpush
+
 @section('content')
+<header class="pricing-hero">
+    <div class="pricing-hero__bg-orbs">
+        <div class="pricing-hero__orb pricing-hero__orb--1"></div>
+        <div class="pricing-hero__orb pricing-hero__orb--2"></div>
+        <div class="pricing-hero__orb pricing-hero__orb--3"></div>
+    </div>
+    <div class="pricing-hero__grid-pattern"></div>
+
+    <div class="pricing-hero__content">
+        <div class="pricing-hero__badge">
+            <i class="fa-solid fa-tags"></i>
+            Harga Transparan &amp; Fleksibel
+        </div>
+        <h1 class="pricing-hero__title">
+            Harga Transparan, <span class="text-gradient">Tanpa Biaya Tersembunyi</span>
+        </h1>
+        <p class="pricing-hero__subtitle">
+            Pilih paket yang paling sesuai dengan kebutuhan dan anggaran nagari Anda. Fleksibel, terjangkau, dan bisa disesuaikan kapan saja.
+        </p>
+        <div class="pricing-hero__trust">
+            <div class="pricing-hero__trust-item">
+                <i class="fa-solid fa-shield-check"></i>
+                <span>Tanpa biaya setup</span>
+            </div>
+            <div class="pricing-hero__trust-item">
+                <i class="fa-solid fa-rotate"></i>
+                <span>Bisa upgrade kapan saja</span>
+            </div>
+            <div class="pricing-hero__trust-item">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+                <span>Garansi 30 hari</span>
+            </div>
+        </div>
+    </div>
+</header>
 
 <section class="pricing section--dark" id="pricing">
     <div class="container">

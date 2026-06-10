@@ -1,7 +1,30 @@
 @extends('site.layouts.app_1')
 
+@push('styles')
+<link rel="stylesheet" href="{{ asset('site/css/fitur.css') }}">
+<link rel="stylesheet" href="{{ asset('site/css/harga.css') }}">
+<link rel="stylesheet" href="{{ asset('site/css/kontak.css') }}">
+@endpush
+
 
 @section('content')
+<header class="kontak-hero">
+    <div class="kontak-hero__bg-orbs">
+        <div class="kontak-hero__orb kontak-hero__orb--1"></div>
+        <div class="kontak-hero__orb kontak-hero__orb--2"></div>
+        <div class="kontak-hero__orb kontak-hero__orb--3"></div>
+    </div>
+    <div class="kontak-hero__grid-pattern"></div>
+    <div class="kontak-hero__content">
+        <div class="kontak-hero__badge">
+            <i class="fa-solid fa-headset"></i>
+            Siap Membantu Anda 24/7
+        </div>
+        <h1 class="kontak-hero__title">Hubungi <span class="highlight">Kami</span></h1>
+        <p class="kontak-hero__subtitle">Konsultasi gratis untuk kebutuhan digitalisasi nagari Anda. Tim kami siap membantu kapan saja.</p>
+    </div>
+</header>
+
  <section class="kontak-info">
         <div class="container">
             <div class="kontak-info__grid stagger">

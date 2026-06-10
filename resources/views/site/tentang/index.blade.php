@@ -1,5 +1,11 @@
 @extends('site.layouts.app_1')
 
+@push('styles')
+<link rel="stylesheet" href="{{ asset('site/css/fitur.css') }}">
+<link rel="stylesheet" href="{{ asset('site/css/harga.css') }}">
+<link rel="stylesheet" href="{{ asset('site/css/tentang.css') }}">
+@endpush
+
 @section('content')
 
 @php
@@ -10,6 +16,35 @@ $missions = $aboutSections->firstWhere('type', 'missions');
 $values = $aboutSections->firstWhere('type', 'values');
 $timeline = $aboutSections->firstWhere('type', 'timeline');
 @endphp
+
+<header class="page-hero">
+    <div class="page-hero__orbs">
+        <div class="page-hero__orb page-hero__orb--1"></div>
+        <div class="page-hero__orb page-hero__orb--2"></div>
+        <div class="page-hero__orb page-hero__orb--3"></div>
+    </div>
+    <div class="page-hero__grid"></div>
+
+    <div class="container">
+        <div class="page-hero__content">
+            <div class="page-hero__badge">
+                <i class="fa-solid fa-circle"></i>
+                Mitra Digital Terpercaya
+            </div>
+            <h1 class="page-hero__title">
+                Tentang <span class="highlight">Nagari Digital</span>
+            </h1>
+            <p class="page-hero__subtitle">
+                Mitra Digital Terpercaya untuk Pemerintahan Nagari. Membangun masa depan desa yang lebih modern, transparan, dan efisien melalui teknologi.
+            </p>
+            <div class="page-hero__breadcrumb">
+                <a href="index.html"><i class="fa-solid fa-house"></i> Beranda</a>
+                <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="current">Tentang Kami</span>
+            </div>
+        </div>
+    </div>
+</header>
 
 <section class="story">
     <div class="container">
