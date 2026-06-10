@@ -28,3 +28,6 @@ Thumbs.db
 
 # Compiled view cache
 storage/framework/views/*.php
+
+# Compiled view cache
+storage/framework/views/*.php
