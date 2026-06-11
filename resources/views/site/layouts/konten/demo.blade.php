@@ -69,7 +69,7 @@
                     <i class="fa-solid fa-arrow-up-right-from-square"></i> Kunjungi Website
                 </a>
                 @else
-                <a href="#" class="btn btn--primary demo__card-btn" target="_blank">
+                <a href="https://demo-layanan.nagaridigital.web.id/" class="btn btn--primary demo__card-btn" target="_blank">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Demo
                 </a>
                 @endif
@@ -79,7 +79,7 @@
 
         <div class="demo__bottom-cta reveal">
             <p><i class="fa-solid fa-circle-info"></i> Butuh bantuan mengakses demo? Hubungi kami via WhatsApp untuk panduan langkah demi langkah.</p>
-            <a href="https://wa.me/{{ $settings['whatsapp'] ?? '6282284186104' }}?text=Halo%2C%20saya%20ingin%20mencoba%20demo%20Nagari%20Digital.%20Bisa%20bantu%20saya%3F" target="_blank" class="btn btn--whatsapp btn--sm">
+            <a href="https://wa.me/{{ $settings['whatsapp'] ?? '6285161839282' }}?text=Halo%2C%20saya%20ingin%20mencoba%20demo%20Nagari%20Digital.%20Bisa%20bantu%20saya%3F" target="_blank" class="btn btn--whatsapp btn--sm">
                 <i class="fa-brands fa-whatsapp"></i> Chat untuk Bantuan Demo
             </a>
         </div>

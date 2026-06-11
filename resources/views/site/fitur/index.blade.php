@@ -37,7 +37,7 @@
                 <div class="fitur-hero__app-icon-circle">
                     <i class="fa-solid fa-map-location-dot"></i>
                 </div>
-                <span>Jorong</span>
+                <span>Dusun/Jorong</span>
             </a>
             <a href="#pendataan" class="fitur-hero__app-icon">
                 <div class="fitur-hero__app-icon-circle">
@@ -76,10 +76,10 @@
                 <h2 class="app-section__title">Pelayanan Kependudukan Digital</h2>
 
                 <p class="app-section__desc">
-                    Modernisasi seluruh proses administrasi kependudukan nagari Anda. Dari pembuatan surat keterangan, KK, KTP, akta, SKU, SKCK, hingga surat-surat penting lainnya — semuanya bisa diproses secara digital dengan cepat dan akurat.
+                    Modernisasi seluruh proses administrasi kependudukan desa/nagari Anda. Dari pembuatan surat keterangan seperti : Surat Keterangan Domisili, Surat Keterangan Usaha, Surat Keterangan Usaha, dan surat-surat penting lainnya — semuanya bisa diproses secara digital dengan cepat dan akurat.
                 </p>
                 <p class="app-section__desc">
-                    Sistem ini dilengkapi dengan database kependudukan terintegrasi yang memungkinkan petugas nagari untuk memproses permohonan dalam hitungan menit, bukan hari. Warga juga bisa melacak status pengajuan mereka secara real-time melalui notifikasi WhatsApp otomatis.
+                    Sistem ini dilengkapi dengan database kependudukan terintegrasi yang memungkinkan petugas desa/nagari untuk memproses permohonan dalam hitungan menit, bukan hari.
                 </p>
 
                 <div class="app-section__features stagger">
@@ -87,7 +87,7 @@
                         <div class="app-section__feature-icon"><i class="fa-solid fa-file-lines"></i></div>
                         <div class="app-section__feature-text">
                             <h4>Pembuatan Surat Otomatis</h4>
-                            <p>KK, KTP, Akta, SKU, SKCK, dan 20+ jenis surat</p>
+                            <p>SKU, SKTM, Dan 10+ jenis surat</p>
                         </div>
                     </div>
                     <div class="app-section__feature-item reveal">
@@ -128,8 +128,8 @@
                     <div class="app-section__feature-item reveal">
                         <div class="app-section__feature-icon"><i class="fa-brands fa-whatsapp"></i></div>
                         <div class="app-section__feature-text">
-                            <h4>Notifikasi WhatsApp</h4>
-                            <p>Update status otomatis ke warga via WA</p>
+                            <h4>Notifikasi Modifikasi Melalui Aplikasi</h4>
+                            <p>Update status otomatis ke warga via Aplikasi</p>
                         </div>
                     </div>
                     <div class="app-section__feature-item reveal">
@@ -234,16 +234,16 @@
                     <div class="app-section__icon-circle">
                         <i class="fa-solid fa-map-location-dot"></i>
                     </div>
-                    <span class="app-section__app-name">Aplikasi Jorong</span>
+                    <span class="app-section__app-name">Aplikasi Dusun/Jorong</span>
                 </div>
 
-                <h2 class="app-section__title">Manajemen Jorong Terintegrasi</h2>
+                <h2 class="app-section__title">Manajemen Dusun/Jorong Terintegrasi</h2>
 
                 <p class="app-section__desc">
-                    Kelola seluruh data dan administrasi di tingkat jorong secara efisien. Aplikasi ini dirancang agar Kepala Jorong dan perangkatnya bisa mencatat kegiatan, mengelola data penduduk, dan membuat laporan periodik secara otomatis.
+                    Kelola seluruh data dan administrasi di tingkat dusun/jorong secara efisien. Aplikasi ini dirancang agar Kepala Jorong bisa mencatat kegiatan, mengelola data penduduk, dan membuat laporan kematian secara periodik.
                 </p>
                 <p class="app-section__desc">
-                    Semua data dari setiap jorong tersinkronisasi secara real-time ke sistem nagari pusat, memastikan konsistensi data dan memudahkan koordinasi antara jorong dan pemerintahan nagari. Dilengkapi dengan peta wilayah interaktif untuk visualisasi data geospasial.
+                    Semua data dari setiap jorong tersinkronisasi secara real-time ke sistem nagari pusat, memastikan konsistensi data dan memudahkan koordinasi antara jorong dan pemerintahan nagari.
                 </p>
 
                 <div class="app-section__features stagger">
@@ -265,7 +265,7 @@
                         <div class="app-section__feature-icon"><i class="fa-solid fa-calendar-check"></i></div>
                         <div class="app-section__feature-text">
                             <h4>Laporan Periodik Otomatis</h4>
-                            <p>Generate laporan mingguan & bulanan</p>
+                            <p>Generate laporan bulanan</p>
                         </div>
                     </div>
                     <div class="app-section__feature-item reveal">
@@ -280,13 +280,6 @@
                         <div class="app-section__feature-text">
                             <h4>Peta Wilayah Jorong</h4>
                             <p>Visualisasi data geospasial interaktif</p>
-                        </div>
-                    </div>
-                    <div class="app-section__feature-item reveal">
-                        <div class="app-section__feature-icon"><i class="fa-solid fa-people-group"></i></div>
-                        <div class="app-section__feature-text">
-                            <h4>Manajemen RT/RW</h4>
-                            <p>Kelola struktur organisasi tingkat RT/RW</p>
                         </div>
                     </div>
                     <div class="app-section__feature-item reveal">
@@ -561,13 +554,13 @@
                 </p>
 
                 <div class="app-section__features stagger">
-                    <div class="app-section__feature-item reveal">
+                    <!-- <div class="app-section__feature-item reveal">
                         <div class="app-section__feature-icon"><i class="fa-solid fa-id-card"></i></div>
                         <div class="app-section__feature-text">
                             <h4>KMS Digital</h4>
                             <p>Kartu Menuju Sehat dalam format digital</p>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="app-section__feature-item reveal">
                         <div class="app-section__feature-icon"><i class="fa-solid fa-syringe"></i></div>
                         <div class="app-section__feature-text">
@@ -701,7 +694,7 @@
                     <div class="app-section__icon-circle">
                         <i class="fa-solid fa-globe"></i>
                     </div>
-                    <span class="app-section__app-name">Website Nagari</span>
+                    <span class="app-section__app-name">Website Desa/Nagari</span>
                 </div>
 
                 <h2 class="app-section__title">Portal Informasi Resmi Nagari</h2>
@@ -891,7 +884,7 @@
                         <div class="integration__node-icon">
                             <i class="fa-solid fa-map-location-dot"></i>
                         </div>
-                        <h4>Jorong</h4>
+                        <h4>Dusun/Jorong</h4>
                         <p>Data jorong sinkron ke nagari secara otomatis</p>
                     </div>
                     <div class="integration__node reveal">

@@ -26,50 +26,49 @@
 </header>
 
  <section class="kontak-info">
-        <div class="container">
-            <div class="kontak-info__grid stagger">
-                <!-- WhatsApp Card -->
-                <div class="kontak-info__card reveal">
-                    <div class="kontak-info__icon kontak-info__icon--wa">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </div>
-                    <h3 class="kontak-info__title">WhatsApp</h3>
-                    <p class="kontak-info__detail">{{ $settings['whatsapp'] ?? '0822-8418-6104' }}</p>
-                    <p class="kontak-info__desc">Respon cepat dalam hitungan menit. Tersedia 24/7 untuk konsultasi dan support.</p>
-                    <a href="https://wa.me/{{ $settings['whatsapp'] ?? '6282284186104' }}?text=Halo%2C%20saya%20tertarik%20dengan%20Nagari%20Digital" target="_blank" class="btn btn--whatsapp">
-                        <i class="fa-brands fa-whatsapp"></i> Chat Sekarang
-                    </a>
+    <div class="container">
+        <div class="kontak-info__grid stagger">
+            <!-- WhatsApp Card -->
+            <div class="kontak-info__card reveal">
+                <div class="kontak-info__icon kontak-info__icon--wa">
+                    <i class="fa-brands fa-whatsapp"></i>
                 </div>
+                <h3 class="kontak-info__title">WhatsApp</h3>
+                <p class="kontak-info__detail">{{ $settings['whatsapp'] ?? '0822-8418-6104' }}</p>
+                <p class="kontak-info__desc">Respon cepat dalam hitungan menit. Tersedia 24/7 untuk konsultasi dan support.</p>
+                <a href="https://wa.me/{{ $settings['whatsapp'] ?? '6282284186104' }}?text=Halo%2C%20saya%20tertarik%20dengan%20Nagari%20Digital" target="_blank" class="btn btn--whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> Chat Sekarang
+                </a>
+            </div>
 
-                <!-- Email Card -->
-                <div class="kontak-info__card reveal">
-                    <div class="kontak-info__icon kontak-info__icon--email">
-                        <i class="fa-solid fa-envelope"></i>
-                    </div>
-                    <h3 class="kontak-info__title">Email</h3>
-                    <p class="kontak-info__detail">{{ $settings['email'] ?? 'info@nagaridigital.web.id' }}</p>
-                    </div>
-                    <p class="kontak-info__desc">Kirim pertanyaan atau proposal kerjasama. Kami akan merespons dalam 1x24 jam.</p>
-                    <a href="mailto:{{ $settings['email'] ?? 'info@nagaridigital.web.id' }}" class="btn btn--primary">
-                        <i class="fa-solid fa-paper-plane"></i> Kirim Email
-                    </a>
+            <!-- Email Card -->
+            <div class="kontak-info__card reveal">
+                <div class="kontak-info__icon kontak-info__icon--email">
+                    <i class="fa-solid fa-envelope"></i>
                 </div>
+                <h3 class="kontak-info__title">Email</h3>
+                <p class="kontak-info__detail">{{ $settings['email'] ?? 'info@nagaridigital.web.id' }}</p>
+                <p class="kontak-info__desc">Kirim pertanyaan atau proposal kerjasama. Kami akan merespons dalam 1x24 jam.</p>
+                <a href="mailto:{{ $settings['email'] ?? 'info@nagaridigital.web.id' }}" class="btn btn--primary">
+                    <i class="fa-solid fa-paper-plane"></i> Kirim Email
+                </a>
+            </div>
 
-                <!-- Location Card -->
-                <div class="kontak-info__card reveal">
-                    <div class="kontak-info__icon kontak-info__icon--loc">
-                        <i class="fa-solid fa-map-marker-alt"></i>
-                    </div>
-                    <h3 class="kontak-info__title">Lokasi</h3>
-                    <p class="kontak-info__detail">{{ $settings['location'] ?? 'Sumatera Barat, Indonesia' }}</p>
-                    <p class="kontak-info__desc">Melayani seluruh nagari dan desa di Indonesia. Konsultasi bisa dilakukan secara online.</p>
-                    <a href="https://maps.google.com/?q=Sumatera+Barat+Indonesia" target="_blank" class="btn btn--outline">
-                        <i class="fa-solid fa-location-dot"></i> Lihat di Peta
-                    </a>
+            <!-- Location Card -->
+            <div class="kontak-info__card reveal">
+                <div class="kontak-info__icon kontak-info__icon--loc">
+                    <i class="fa-solid fa-map-marker-alt"></i>
                 </div>
+                <h3 class="kontak-info__title">Lokasi</h3>
+                <p class="kontak-info__detail">{{ $settings['location'] ?? 'Sumatera Barat, Indonesia' }}</p>
+                <p class="kontak-info__desc">Melayani seluruh nagari dan desa di Indonesia. Konsultasi bisa dilakukan secara online.</p>
+                <a href="https://maps.google.com/?q=Sumatera+Barat+Indonesia" target="_blank" class="btn btn--outline">
+                    <i class="fa-solid fa-location-dot"></i> Lihat di Peta
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Contact Form Section -->
     <section class="kontak-form-section section--gray" id="form">
@@ -114,7 +113,8 @@
 
                 <!-- Right side form -->
                 <div class="kontak-form__card reveal-right">
-                    <form id="kontakForm" class="kontak-form" novalidate>
+                    <form id="kontakForm" class="kontak-form" method="POST" action="{{ route('kontak.store') }}" novalidate>
+                        @csrf
                         <div class="kontak-form__row">
                             <div class="kontak-form__group">
                                 <div class="kontak-form__input-wrap">

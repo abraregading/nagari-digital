@@ -128,6 +128,16 @@ Paket: ${paketText}
 Pesan:
 ${pesanText}`;
 
+    // Submit to server
+    const csrfToken = form.querySelector('[name="_token"]')?.value;
+    if (csrfToken) {
+      fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': csrfToken },
+        body: JSON.stringify({ nama, email, whatsapp, nagari, paket: paket || '', pesan: pesan || '' })
+      }).catch(() => {});
+    }
+
     // Short delay for UX feel
     setTimeout(() => {
       // Show success state

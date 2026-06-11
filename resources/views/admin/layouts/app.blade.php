@@ -22,6 +22,7 @@
             ],
             'Konten Website' => [
                 ['route' => 'admin.settings.index', 'icon' => 'fa-house', 'label' => 'Homepage'],
+                ['route' => 'admin.stats.index', 'icon' => 'fa-chart-simple', 'label' => 'Statistik'],
                 ['route' => 'admin.products.index', 'icon' => 'fa-cube', 'label' => 'Produk / Aplikasi'],
                 ['route' => 'admin.testimonials.index', 'icon' => 'fa-star', 'label' => 'Testimonial'],
                 ['route' => 'admin.pricing-plans.index', 'icon' => 'fa-tags', 'label' => 'Harga & Paket'],

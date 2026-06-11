@@ -17,7 +17,7 @@
         <div><label style="font-size:13px;font-weight:500;">Label Periode</label><input type="text" name="period_bulanan" value="{{ $plan->period_label['bulanan'] }}" class="form-control" required style="width:100%;padding:8px 12px;border:1px solid #d1d5db;border-radius:6px;margin-top:4px;"></div>
         <div style="grid-column:1/-1;">
           <label style="font-size:13px;font-weight:500;">Fitur (format: [x] untuk termasuk, [ ] untuk tidak termasuk)</label>
-          <textarea name="features" class="form-control" style="width:100%;padding:8px 12px;border:1px solid #d1d5db;border-radius:6px;margin-top:4px;min-height:150px;font-family:monospace;font-size:12px;">@foreach($plan->features as $f>{{ ($f->included ? '[x]' : '[ ]') }} {{ $f->text }}
+          <textarea name="features" class="form-control" style="width:100%;padding:8px 12px;border:1px solid #d1d5db;border-radius:6px;margin-top:4px;min-height:150px;font-family:monospace;font-size:12px;">@foreach($plan->features as $f){{ ($f->included ? '[x]' : '[ ]') }} {{ $f->text }}
 @endforeach</textarea>
         </div>
       </div>
