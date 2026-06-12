@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin Nagari',
             'email' => 'admin@nagaridigital.web.id',
             'password' => bcrypt('admin123'),
+            'role' => 'admin',
+            'phone' => '0822-8418-6104',
         ]);
     }
 }

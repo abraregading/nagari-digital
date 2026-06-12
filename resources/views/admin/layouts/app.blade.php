@@ -29,8 +29,14 @@
                 ['route' => 'admin.faqs.index', 'icon' => 'fa-circle-question', 'label' => 'FAQ'],
                 ['route' => 'admin.about-sections.index', 'icon' => 'fa-building-columns', 'label' => 'Tentang Kami'],
             ],
-            'Lainnya' => [
+            'Pesanan' => [
+                ['route' => 'admin.orders.index', 'icon' => 'fa-receipt', 'label' => 'Pesanan Client'],
                 ['route' => 'admin.messages.index', 'icon' => 'fa-envelope', 'label' => 'Pesan Masuk'],
+            ],
+            'Pengaturan' => [
+                ['route' => 'admin.settings.print-out', 'icon' => 'fa-file-invoice', 'label' => 'Invoice Print-out'],
+            ],
+            'Lainnya' => [
                 ['route' => 'route_to_home', 'icon' => 'fa-arrow-left', 'label' => 'Ke Website', 'external' => route('home')],
             ],
         ];
@@ -58,7 +64,7 @@
           <div class="sidebar__user-avatar">{{ strtoupper(substr(Auth::user()->name ?? 'A', 0, 2)) }}</div>
           <div class="sidebar__user-info">
             <div class="sidebar__user-name">{{ Auth::user()->name ?? 'Admin' }}</div>
-            <div class="sidebar__user-role">Super Admin</div>
+            <div class="sidebar__user-role">{{ Auth::user()->isAdmin() ? 'Super Admin' : 'Admin' }}</div>
           </div>
           <form method="POST" action="{{ route('logout') }}" style="display:inline;">
             @csrf

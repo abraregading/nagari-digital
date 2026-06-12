@@ -25,23 +25,24 @@ class PricingPlanController extends Controller
     {
         $data = $request->validate([
             'name' => 'required', 'tagline' => 'required',
-            'price_bulanan' => 'required|numeric',
-            'period_bulanan' => 'required',
+            'price_bulanan' => 'required|numeric|min:0',
             'features' => 'nullable',
         ]);
+
+        $monthly = $data['price_bulanan'];
 
         $pricingPlan->update([
             'name' => $data['name'],
             'tagline' => $data['tagline'],
             'price' => [
-                'bulanan' => $data['price_bulanan'],
-                '6bulan' => $data['price_bulanan'],
-                'tahunan' => $data['price_bulanan'],
+                'bulanan' => $monthly,
+                '6bulan' => $monthly * 6,
+                'tahunan' => $monthly * 12,
             ],
             'period_label' => [
-                'bulanan' => $data['period_bulanan'],
-                '6bulan' => $data['period_bulanan'],
-                'tahunan' => $data['period_bulanan'],
+                'bulanan' => '/bulan',
+                '6bulan' => '/6 bulan',
+                'tahunan' => '/tahun',
             ],
         ]);
 

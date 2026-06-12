@@ -26,7 +26,7 @@
             @php
             $demoApps = [
                 ['icon' => 'fa-file-contract', 'color' => 'green', 'title' => 'Pelayanan Kependudukan', 'desc' => 'Coba langsung proses pembuatan surat, tracking pengajuan, dan manajemen data kependudukan.',
-                 'features' => ['Buat surat contoh (KK, KTP, Akta)', 'Lihat dashboard pelayanan', 'Tracking status pengajuan']],
+                 'features' => ['Buat surat contoh (SKU, SKM, SKP Orang Tua)', 'Lihat dashboard pelayanan', 'Tracking status pengajuan']],
                 ['icon' => 'fa-map-location-dot', 'color' => 'blue', 'title' => 'Aplikasi Jorong', 'desc' => 'Jelajahi dashboard jorong, manajemen data wilayah, dan sinkronisasi dengan sistem Nagari.',
                  'features' => ['Dashboard data jorong', 'Kelola penduduk per jorong', 'Laporan periodik otomatis']],
                 ['icon' => 'fa-users-rectangle', 'color' => 'purple', 'title' => 'Pendataan Penduduk', 'desc' => 'Lihat sistem pencatatan penduduk, statistik demografi, dan fitur export laporan.',

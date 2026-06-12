@@ -121,18 +121,18 @@ class NagariDataSeeder extends Seeder
         $dasar = PricingPlan::create([
             'key' => 'dasar', 'name' => 'Paket Dasar', 'icon' => 'fa-seedling',
             'tagline' => 'Untuk nagari yang baru memulai digitalisasi',
-            'price' => ['bulanan' => 450000, '6bulan' => 2250000, 'tahunan' => 4050000],
+            'price' => ['bulanan' => 450000, '6bulan' => 450000 * 6, 'tahunan' => 450000 * 12],
             'period_label' => ['bulanan' => '/bulan', '6bulan' => '/6 bulan', 'tahunan' => '/tahun'],
-            'savings' => ['bulanan' => '', '6bulan' => 'Hemat 17%', 'tahunan' => 'Hemat 26%'],
+            'savings' => ['bulanan' => '', '6bulan' => '', 'tahunan' => ''],
             'popular' => false, 'apps' => ['Pelayanan Kependudukan', 'Aplikasi Jorong'], 'order' => 1,
         ]);
 
         $komplet = PricingPlan::create([
             'key' => 'komplet', 'name' => 'Paket Komplet', 'icon' => 'fa-crown',
             'tagline' => 'Solusi lengkap untuk nagari yang serius berdigitalisasi',
-            'price' => ['bulanan' => 9500000, '6bulan' => 9500000, 'tahunan' => 9500000],
-            'period_label' => ['bulanan' => '/tahun', '6bulan' => '/tahun', 'tahunan' => '/tahun'],
-            'savings' => ['bulanan' => 'Termasuk server', '6bulan' => 'Termasuk server', 'tahunan' => 'Termasuk server'],
+            'price' => ['bulanan' => 9500000, '6bulan' => 9500000 * 6, 'tahunan' => 9500000 * 12],
+            'period_label' => ['bulanan' => '/bulan', '6bulan' => '/6 bulan', 'tahunan' => '/tahun'],
+            'savings' => ['bulanan' => '', '6bulan' => '', 'tahunan' => ''],
             'popular' => true,
             'apps' => ['Pelayanan Kependudukan', 'Aplikasi Jorong', 'Pendataan Penduduk', 'Aplikasi Posyandu', 'Website Nagari'],
             'order' => 2,
@@ -141,9 +141,9 @@ class NagariDataSeeder extends Seeder
         $lepas = PricingPlan::create([
             'key' => 'lepas', 'name' => 'Paket Lepas', 'icon' => 'fa-rocket',
             'tagline' => 'Beli putus, kelola sendiri sepenuhnya',
-            'price' => ['bulanan' => 15000000, '6bulan' => 15000000, 'tahunan' => 15000000],
-            'period_label' => ['bulanan' => 'sekali bayar', '6bulan' => 'sekali bayar', 'tahunan' => 'sekali bayar'],
-            'savings' => ['bulanan' => 'Full ownership', '6bulan' => 'Full ownership', 'tahunan' => 'Full ownership'],
+            'price' => ['bulanan' => 15000000, '6bulan' => 15000000 * 6, 'tahunan' => 15000000 * 12],
+            'period_label' => ['bulanan' => 'sekali bayar', '6bulan' => '/6 bulan', 'tahunan' => '/tahun'],
+            'savings' => ['bulanan' => '', '6bulan' => '', 'tahunan' => ''],
             'popular' => false,
             'apps' => ['Pelayanan Kependudukan', 'Aplikasi Jorong', 'Pendataan Penduduk', 'Aplikasi Posyandu', 'Website Nagari'],
             'order' => 3,

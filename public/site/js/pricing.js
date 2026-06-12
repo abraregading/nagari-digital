@@ -1,71 +1,49 @@
-/* =============================================
-   PRICING PAGE — JavaScript
-   ============================================= */
-
 document.addEventListener('DOMContentLoaded', () => {
   initPricingToggle();
   initFaqAccordion();
 });
 
-/* --- Pricing Period Toggle --- */
 function initPricingToggle() {
   const toggleBtns = document.querySelectorAll('.pricing-toggle__btn');
-  const priceAmount = document.getElementById('priceAmount');
-  const pricePeriod = document.getElementById('pricePeriod');
-  const priceSavings = document.getElementById('priceSavings');
+  const cards = document.querySelectorAll('.pricing-card');
 
-  if (!toggleBtns.length || !priceAmount) return;
-
-  const pricing = {
-    bulanan: {
-      amount: '450.000',
-      period: '/bulan',
-      savings: ''
-    },
-    '6bulan': {
-      amount: '2.250.000',
-      period: '/6 bulan',
-      savings: '<i class="fa-solid fa-piggy-bank"></i> Hemat Rp 450.000 dibanding bulanan'
-    },
-    tahunan: {
-      amount: '4.000.000',
-      period: '/tahun',
-      savings: '<i class="fa-solid fa-fire"></i> Hemat Rp 1.400.000 dibanding bulanan'
-    }
-  };
+  if (!toggleBtns.length || !cards.length) return;
 
   toggleBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Update active state
       toggleBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
       const period = btn.getAttribute('data-period');
-      const data = pricing[period];
+      const multiplier = period === 'tahunan' ? 12 : period === '6bulan' ? 6 : 1;
+      const periodLabel = period === 'tahunan' ? '/tahun' : period === '6bulan' ? '/6 bulan' : '/bulan';
 
-      if (!data) return;
+      cards.forEach(card => {
+        const amountEl = card.querySelector('.pricing-card__amount');
+        const periodEl = card.querySelector('.pricing-card__period');
 
-      // Animate price change
-      priceAmount.style.opacity = '0';
-      priceAmount.style.transform = 'translateY(-10px)';
+        if (!amountEl || !periodEl) return;
 
-      setTimeout(() => {
-        priceAmount.textContent = data.amount;
-        pricePeriod.textContent = data.period;
+        const monthly = parseInt(amountEl.getAttribute('data-monthly'));
+        if (!monthly) return;
 
-        if (priceSavings) {
-          priceSavings.innerHTML = data.savings;
-          priceSavings.classList.toggle('pricing-card__savings--visible', data.savings !== '');
-        }
+        const total = monthly * multiplier;
+        const fmt = total.toLocaleString('id-ID');
 
-        priceAmount.style.opacity = '1';
-        priceAmount.style.transform = 'translateY(0)';
-      }, 200);
+        amountEl.style.opacity = '0';
+        amountEl.style.transform = 'translateY(-10px)';
+
+        setTimeout(() => {
+          amountEl.textContent = fmt;
+          periodEl.textContent = periodLabel;
+          amountEl.style.opacity = '1';
+          amountEl.style.transform = 'translateY(0)';
+        }, 200);
+      });
     });
   });
 }
 
-/* --- FAQ Accordion --- */
 function initFaqAccordion() {
   const faqItems = document.querySelectorAll('.faq__item');
 
@@ -79,7 +57,6 @@ function initFaqAccordion() {
     question.addEventListener('click', () => {
       const isOpen = item.classList.contains('faq__item--open');
 
-      // Close all items
       faqItems.forEach(otherItem => {
         otherItem.classList.remove('faq__item--open');
         const otherAnswer = otherItem.querySelector('.faq__answer');
@@ -93,7 +70,6 @@ function initFaqAccordion() {
         if (otherQuestion) otherQuestion.setAttribute('aria-expanded', 'false');
       });
 
-      // Open clicked item if it was closed
       if (!isOpen) {
         item.classList.add('faq__item--open');
         answer.style.maxHeight = answer.scrollHeight + 'px';

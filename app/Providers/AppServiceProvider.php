@@ -15,8 +15,13 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        View::composer('*', function ($view) {
+        try {
             $settings = Setting::pluck('value', 'key')->toArray();
+        } catch (\Exception $e) {
+            $settings = [];
+        }
+
+        View::composer('*', function ($view) use ($settings) {
             $view->with('settings', $settings);
         });
     }

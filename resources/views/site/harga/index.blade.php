@@ -50,23 +50,14 @@
             <p>Semua paket sudah termasuk pelatihan penggunaan, setup awal, dan dukungan teknis. Tidak ada biaya tersembunyi.</p>
         </div>
 
-        @php $dasarPlan = $pricingPlans->firstWhere('key', 'dasar'); @endphp
-        @if($dasarPlan)
         <div class="pricing-toggle reveal" id="pricingToggle">
-            <span class="pricing-toggle__label">Periode Paket Dasar:</span>
+            <span class="pricing-toggle__label">Pilih Periode:</span>
             <div class="pricing-toggle__buttons">
                 <button class="pricing-toggle__btn active" data-period="bulanan">Bulanan</button>
-                <button class="pricing-toggle__btn" data-period="6bulan">
-                    6 Bulan
-                    <span class="pricing-toggle__badge">{{ $dasarPlan->savings['6bulan'] }}</span>
-                </button>
-                <button class="pricing-toggle__btn" data-period="tahunan">
-                    Tahunan
-                    <span class="pricing-toggle__badge pricing-toggle__badge--hot">{{ $dasarPlan->savings['tahunan'] }}</span>
-                </button>
+                <button class="pricing-toggle__btn" data-period="6bulan">6 Bulan</button>
+                <button class="pricing-toggle__btn" data-period="tahunan">Tahunan</button>
             </div>
         </div>
-        @endif
 
         <div class="pricing__grid stagger">
             @foreach($pricingPlans as $plan)
@@ -88,14 +79,11 @@
                 <div class="pricing-card__price-wrapper">
                     <div class="pricing-card__price">
                         <span class="pricing-card__currency">Rp</span>
-                        <span class="pricing-card__amount" data-price="{{ $plan->price['bulanan'] }}">{{ number_format($plan->price['bulanan'], 0, ',', '.') }}</span>
-                        <span class="pricing-card__period">{{ $plan->period_label['bulanan'] }}</span>
+                        <span class="pricing-card__amount"
+                            data-monthly="{{ $plan->price['bulanan'] }}">{{ number_format($plan->price['bulanan'], 0, ',', '.') }}</span>
+                        <span class="pricing-card__period">/bulan</span>
                     </div>
-                    @if(!empty($plan->savings['bulanan']))
-                    <div class="pricing-card__savings @if($plan->popular) pricing-card__savings--visible @endif">
-                        <i class="fa-solid fa-fire"></i> {{ $plan->savings['bulanan'] }}
-                    </div>
-                    @endif
+                    <div class="pricing-card__savings"></div>
                 </div>
 
                 <div class="pricing-card__apps">
@@ -127,9 +115,22 @@
                     @endforeach
                 </ul>
 
-                <a href="https://wa.me/{{ $settings['whatsapp'] ?? '6282284186104' }}?text=Halo%2C%20saya%20tertarik%20dengan%20{{ urlencode($plan->name) }}%20Nagari%20Digital." target="_blank" class="btn @if($plan->popular) btn--primary btn--lg @else btn--outline-white @endif pricing-card__btn">
-                    <i class="fa-brands fa-whatsapp"></i> Pilih {{ $plan->name }}
+                @auth
+                    @if(Auth::user()->isClient())
+                    <a href="{{ route('client.orders.create', $plan) }}" class="btn btn--primary btn--lg pricing-card__btn">
+                        <i class="fa-solid fa-credit-card"></i> Pesan {{ $plan->name }} Sekarang
+                    </a>
+                    @elseif(Auth::user()->isAdmin())
+                    <a href="https://wa.me/{{ $settings['whatsapp'] ?? '6282284186104' }}?text=Halo%2C%20saya%20tertarik%20dengan%20{{ urlencode($plan->name) }}%20Nagari%20Digital." target="_blank" class="btn btn--outline-white pricing-card__btn">
+                        <i class="fa-brands fa-whatsapp"></i> Hubungi via WhatsApp
+                    </a>
+                    @endif
+                @endauth
+                @guest
+                <a href="{{ route('register') }}" class="btn @if($plan->popular) btn--primary btn--lg @else btn--outline-white @endif pricing-card__btn">
+                    <i class="fa-solid fa-user-plus"></i> Daftar & Pesan {{ $plan->name }}
                 </a>
+                @endguest
             </div>
             @endforeach
         </div>
@@ -165,11 +166,29 @@
                         <td colspan="{{ $pricingPlans->count() + 1 }}"><i class="fa-solid fa-tag"></i> Harga</td>
                     </tr>
                     <tr>
-                        <td>Harga</td>
+                        <td>Harga (1 bulan)</td>
                         @foreach($pricingPlans as $plan)
                         <td @if($plan->popular) class="comparison__highlight" @endif>
                             Rp {{ number_format($plan->price['bulanan'], 0, ',', '.') }}
-                            <small>{{ $plan->period_label['bulanan'] }}</small>
+                            <small>/bulan</small>
+                        </td>
+                        @endforeach
+                    </tr>
+                    <tr>
+                        <td>Harga (6 bulan)</td>
+                        @foreach($pricingPlans as $plan)
+                        <td @if($plan->popular) class="comparison__highlight" @endif>
+                            Rp {{ number_format($plan->price['bulanan'] * 6, 0, ',', '.') }}
+                            <small>/6 bulan</small>
+                        </td>
+                        @endforeach
+                    </tr>
+                    <tr>
+                        <td>Harga (1 tahun)</td>
+                        @foreach($pricingPlans as $plan)
+                        <td @if($plan->popular) class="comparison__highlight" @endif>
+                            Rp {{ number_format($plan->price['bulanan'] * 12, 0, ',', '.') }}
+                            <small>/tahun</small>
                         </td>
                         @endforeach
                     </tr>
@@ -251,9 +270,22 @@
                         <td></td>
                         @foreach($pricingPlans as $plan)
                         <td @if($plan->popular) class="comparison__highlight" @endif>
-                            <a href="https://wa.me/{{ $settings['whatsapp'] ?? '6282284186104' }}?text=Halo%2C%20saya%20tertarik%20dengan%20{{ urlencode($plan->name) }}%20Nagari%20Digital." target="_blank" class="btn @if($plan->popular) btn--primary @else btn--outline @endif btn--sm">
-                                Pilih Paket
+                            @auth
+                                @if(Auth::user()->isClient())
+                                <a href="{{ route('client.orders.create', $plan) }}" class="btn btn--primary btn--sm">
+                                    <i class="fa-solid fa-credit-card"></i> Pesan Online
+                                </a>
+                                @else
+                                <a href="https://wa.me/{{ $settings['whatsapp'] ?? '6282284186104' }}?text=Halo%2C%20saya%20tertarik%20dengan%20{{ urlencode($plan->name) }}%20Nagari%20Digital." target="_blank" class="btn btn--outline btn--sm">
+                                    <i class="fa-brands fa-whatsapp"></i> Hubungi WA
+                                </a>
+                                @endif
+                            @endauth
+                            @guest
+                            <a href="{{ route('register') }}" class="btn @if($plan->popular) btn--primary @else btn--outline @endif btn--sm">
+                                <i class="fa-solid fa-user-plus"></i> Daftar & Pesan
                             </a>
+                            @endguest
                         </td>
                         @endforeach
                     </tr>

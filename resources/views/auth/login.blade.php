@@ -42,7 +42,10 @@
       </div>
       <button type="submit" class="btn-login"><span class="btn-text">Masuk</span></button>
     </form>
-    <div class="login-card__footer">&copy; {{ date('Y') }} Nagari Digital. All Rights Reserved.<br><a href="{{ route('home') }}">&larr; Kembali ke Beranda</a></div>
+    <div class="login-card__footer">
+      &copy; {{ date('Y') }} Nagari Digital. All Rights Reserved.<br>
+      <a href="{{ route('home') }}">&larr; Kembali ke Beranda</a> &middot; <a href="{{ route('register') }}">Daftar Akun Baru</a>
+    </div>
   </div>
 </body>
 </html>

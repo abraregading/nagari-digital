@@ -34,4 +34,28 @@ class SettingController extends Controller
         }
         return redirect()->route('admin.settings.index')->with('success', 'Semua pengaturan berhasil disimpan.');
     }
+
+    public function printOutIndex()
+    {
+        $settings = Setting::pluck('value', 'key')->toArray();
+        return view('admin.settings.print-out', compact('settings'));
+    }
+
+    public function updatePrintOut(Request $request)
+    {
+        $keys = [
+            'invoice_header', 'invoice_footer', 'invoice_terms',
+            'invoice_bank_name', 'invoice_bank_account', 'invoice_bank_holder',
+            'invoice_signatory',
+        ];
+
+        foreach ($keys as $key) {
+            if ($request->has($key)) {
+                Setting::set($key, $request->input($key));
+            }
+        }
+
+        return redirect()->route('admin.settings.print-out')
+            ->with('success', 'Pengaturan invoice berhasil disimpan.');
+    }
 }
